@@ -12,5 +12,5 @@ RUN npm install
 
 EXPOSE 80
 
-RUN npm run build
+RUN npm run dev
 
