@@ -1,5 +1,5 @@
 # Use the official Node.js image with the desired version
-FROM node:13-alpine
+FROM node:18-alpine
 
 # Set the working directory inside the container
 WORKDIR /home/react-app
