@@ -1,16 +1,22 @@
+# Use the official Node.js image with the desired version
 FROM node:13-alpine
 
-
-RUN mkdir -p /home/react-app
-
-COPY . /home/react-app
-# set default dir so that next commands executes in /home/app dir
+# Set the working directory inside the container
 WORKDIR /home/react-app
 
-# will execute npm install in /home/app because of WORKDIR
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-EXPOSE 80
+# Copy the rest of the application code
+COPY . .
 
-RUN npm run dev
+# Expose the port your app runs on
+EXPOSE 3000
+
+# Command to run your app (assuming you're using Vite for development)
+CMD ["npm", "run", "dev"]
+
 
