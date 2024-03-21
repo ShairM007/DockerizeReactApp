@@ -37,7 +37,7 @@ jobs:
           COMMIT_HASH=$(echo ${GITHUB_SHA} | cut -c1-8)
           sudo docker push 730335588229.dkr.ecr.us-east-1.amazonaws.com/my-app:${{env.ENVIRONMENT}}-${{ github.run_number }}-${COMMIT_HASH}
 
-      - name: Deploy Docker image to EC2 instance 
+      - name: Deploy Docker image to EC2 instance ok
         uses: appleboy/ssh-action@master
         env:
           FOO: "BAR"
