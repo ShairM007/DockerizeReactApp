@@ -1,7 +1,7 @@
 FROM node:13-alpine
 
 
-RUN mkdir -p /home/app
+RUN mkdir -p /home/react-app
 
 COPY . /home/react-app
 # set default dir so that next commands executes in /home/app dir
@@ -12,5 +12,5 @@ RUN npm install
 
 EXPOSE 80
 
-CMD ["", "/home/node-app/server.js"]
+RUN npm run build
 
