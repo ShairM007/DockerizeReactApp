@@ -70,7 +70,7 @@ jobs:
 
 
 
-      - name: Deploy Docker image to EC2 instance 
+      - name: Deploy Docker image to stagging EC2 instance 
         if: github.ref == 'refs/heads/staging'
         uses: appleboy/ssh-action@master
         env:
