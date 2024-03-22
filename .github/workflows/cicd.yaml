@@ -86,9 +86,9 @@ jobs:
           script: |
             SHORT_SHA=`echo $SHA | cut -c1-8`
             sudo docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 730335588229.dkr.ecr.us-east-1.amazonaws.com
-            # sudo docker stop $(sudo docker ps -q)
-            # sudo docker rm $(sudo docker ps -aq)
-            # sudo docker rmi $( sudo docker images -q)
+            sudo docker stop $(sudo docker ps -q)
+            sudo docker rm $(sudo docker ps -aq)
+            sudo docker rmi $( sudo docker images -q)
             sudo docker pull 730335588229.dkr.ecr.us-east-1.amazonaws.com/my-app:${{env.ENVIRONMENT}}-${{ github.run_number }}-${SHORT_SHA}
             sudo docker run -d -p 3001:3001 730335588229.dkr.ecr.us-east-1.amazonaws.com/my-app:${{env.ENVIRONMENT}}-${{ github.run_number }}-${SHORT_SHA}
             sudo ufw allow 3001
